@@ -1,4 +1,4 @@
-package com.example.sprint6
+package com.example.sprint6.View
 
 import android.os.Bundle
 import android.util.Log
@@ -10,7 +10,8 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.sprint6.Model.PhonesAdapter
+import com.example.sprint6.R
 import com.example.sprint6.ViewModel.PhonesViewModel
 import com.example.sprint6.databinding.FragmentFirstBinding
 
@@ -37,7 +38,7 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter=PhonesAdapter()
+        val adapter= PhonesAdapter()
         mBinding.recyclerview.adapter=adapter
         mBinding.recyclerview.layoutManager= GridLayoutManager(context,2)
         mViewModel.getPhonesList().observe(viewLifecycleOwner,{
