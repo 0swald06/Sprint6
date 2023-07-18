@@ -42,7 +42,7 @@ class PhonesRepository (private val phoneDao:PhonesDao)  {
         val service = kotlin.runCatching { networkService.fechPhoneDetail(id) }
         return service.getOrNull()?.body()?.let {
             val phonesDetailEntity = fromInternetToPhonesDetailEntity(it)
-            //inserto los detalles de los curso DEL REPOSITORIO
+
             phoneDao.insertAllPhoneDetail(phonesDetailEntity)
             phonesDetailEntity
         }
